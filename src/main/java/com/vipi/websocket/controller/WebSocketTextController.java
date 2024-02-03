@@ -29,8 +29,6 @@ public class WebSocketTextController {
     @PostMapping("/send")
     public ResponseEntity<Void> sendMessage(@RequestBody TextMessageDTO textMessageDTO) throws InterruptedException {
         TimeUnit.SECONDS.sleep(3);
-
-
 //        template.convertAndSend("/topic/message", textMessageDTO);
         // Correct destination path for user queue
         template.convertAndSendToUser(textMessageDTO.getUsername(), "/topic/message", textMessageDTO);
