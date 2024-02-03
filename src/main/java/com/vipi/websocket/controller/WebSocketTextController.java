@@ -40,7 +40,6 @@ public class WebSocketTextController {
 //        // receive message from client
 //    }
 
-
     @SendTo("/topic/message")
     public TextMessageDTO broadcastMessage(@Payload TextMessageDTO textMessageDTO) {
         return textMessageDTO;
